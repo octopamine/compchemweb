@@ -1,0 +1,403 @@
+<html>
+  <head>
+    <title>compchem - SCGSSM Computational Chemistry Server - Dr. C.C.Roberts</title>
+    <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono|VT323&display=swap" rel="stylesheet">
+    <script>
+      function init() {
+        var info={
+
+          timeOpened:new Date(),
+          timezone:(new Date()).getTimezoneOffset()/60,
+
+          pageon(){return window.location.pathname},
+          referrer(){return document.referrer},
+          previousSites(){return history.length},
+
+          browserName(){return navigator.appName},
+          browserEngine(){return navigator.product},
+          browserVersion1a(){return navigator.appVersion},
+          browserVersion1b(){return navigator.userAgent},
+          browserLanguage(){return navigator.language},
+          browserOnline(){return navigator.onLine},
+          browserPlatform(){return navigator.platform},
+          javaEnabled(){return navigator.javaEnabled()},
+          dataCookiesEnabled(){return navigator.cookieEnabled},
+          dataCookies1(){return document.cookie},
+          dataCookies2(){return decodeURIComponent(document.cookie.split(";"))},
+          dataStorage(){return localStorage},
+
+          sizeScreenW(){return screen.width},
+          sizeScreenH(){return screen.height},
+          sizeDocW(){return document.width},
+          sizeDocH(){return document.height},
+          sizeInW(){return innerWidth},
+          sizeInH(){return innerHeight},
+          sizeAvailW(){return screen.availWidth},
+          sizeAvailH(){return screen.availHeight},
+          scrColorDepth(){return screen.colorDepth},
+          scrPixelDepth(){return screen.pixelDepth},
+
+
+          latitude(){return position.coords.latitude},
+          longitude(){return position.coords.longitude},
+          accuracy(){return position.coords.accuracy},
+          altitude(){return position.coords.altitude},
+          altitudeAccuracy(){return position.coords.altitudeAccuracy},
+          heading(){return position.coords.heading},
+          speed(){return position.coords.speed},
+          timestamp(){return position.timestamp},
+
+
+        };
+        var nVer = navigator.appVersion;
+        var nAgt = navigator.userAgent;
+        var browserName  = navigator.appName;
+        var fullVersion  = ''+parseFloat(navigator.appVersion);
+        var majorVersion = parseInt(navigator.appVersion,10);
+        var nameOffset,verOffset,ix;
+
+        // In Opera, the true version is after "Opera" or after "Version"
+        if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+          browserName = "Opera";
+          fullVersion = nAgt.substring(verOffset+6);
+          if ((verOffset=nAgt.indexOf("Version"))!=-1)
+            fullVersion = nAgt.substring(verOffset+8);
+        }
+        // In MSIE, the true version is after "MSIE" in userAgent
+        else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+          browserName = "Microsoft Internet Explorer";
+          fullVersion = nAgt.substring(verOffset+5);
+        }
+        // In Chrome, the true version is after "Chrome"
+        else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+          browserName = "Chrome";
+          fullVersion = nAgt.substring(verOffset+7);
+        }
+        // In Safari, the true version is after "Safari" or after "Version"
+        else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+          browserName = "Safari";
+          fullVersion = nAgt.substring(verOffset+7);
+          if ((verOffset=nAgt.indexOf("Version"))!=-1)
+            fullVersion = nAgt.substring(verOffset+8);
+        }
+        // In Firefox, the true version is after "Firefox"
+        else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+          browserName = "Firefox";
+          fullVersion = nAgt.substring(verOffset+8);
+        }
+        // In most other browsers, "name/version" is at the end of userAgent
+        else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < (verOffset=nAgt.lastIndexOf('/')) ) {
+          browserName = nAgt.substring(nameOffset,verOffset);
+          fullVersion = nAgt.substring(verOffset+1);
+          if (browserName.toLowerCase()==browserName.toUpperCase()) {
+            browserName = navigator.appName;
+          }
+        }
+        // trim the fullVersion string at semicolon/space if present
+        if ((ix=fullVersion.indexOf(";"))!=-1)
+          fullVersion=fullVersion.substring(0,ix);
+        if ((ix=fullVersion.indexOf(" "))!=-1)
+          fullVersion=fullVersion.substring(0,ix);
+
+        majorVersion = parseInt(''+fullVersion,10);
+        if (isNaN(majorVersion)) {
+          fullVersion  = ''+parseFloat(navigator.appVersion);
+          majorVersion = parseInt(navigator.appVersion,10);
+        }
+
+        document.getElementById("javaon").innerHTML = "Java: " + info.javaEnabled();
+        var client_sp = window.navigator.userAgent.split("(")[1];
+        client_sp = client_sp.split(")")[0]
+        document.getElementById("client").innerHTML = client_sp; //window.navigator.userAgent;
+        document.getElementById("browser").innerHTML = '' + browserName + ' ' + fullVersion;
+        window.addEventListener("scroll", function(e) {
+          document.getElementById("scroll").innerHTML = "Scroll: (" + document.body.scrollTop + "px)";
+        });
+        window.addEventListener("resize", resize_event);
+        resize_event('');
+
+      }
+      function resize_event(ev) {
+        var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
+            x = w.innerWidth || e.clientWidth || g.clientWidth,
+            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        document.getElementById("wsize").innerHTML = "WinDim: (" + x + "px, " + y + "px)";
+      }
+      function mouse_position(e) {
+        document.getElementById("coor").innerHTML = "Mouse: (" + e.clientX + "px, " + e.clientY + "px)";
+      }
+    </script>
+
+		<style type="text/css">
+			:root {
+				--color-fg: #c5c8c6;
+				--color-bg: #1d1f21;
+				--color-cursor: #c5c8c6;
+				--color-black: #282a2e;
+				--color-lblack: #373b41;
+				--color-red: #a54242;
+				--color-lred: #cc6666;
+				--color-green: #8c9440;
+				--color-lgreen: #b5bd68;
+				--color-yellow: #de935f;
+				--color-lyellow: #f0c674;
+				--color-blue: #5f819d;
+				--color-lblue: #81a2be;
+				--color-magenta: #85678f;
+				--color-lmagenta: #b294bb;
+				--color-cyan: #5e8d87;
+				--color-lcyan: #8abeb7;
+				--color-white: #9a9a9a;
+				--color-lwhite: #c5c8c6;
+			}
+
+
+      @font-face {
+        font-family: 'IBM VGA 8x16';
+        src: url(Web_IBM_VGA_8x16.woff) format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'IBM VGA 9x8';
+        src: url(Web_IBM_VGA_9x8.woff) format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+			body {
+				background-color: #181818;
+        font-family: 'IBM VGA 8x16';
+        font-size: 12pt;
+				color: var(--color-lwhite);
+        height: 100%;
+			}
+
+      .body_content {
+        width: 1200px;
+        margin: auto auto;
+      }
+
+      h1, h2, h3, h4, h5 {
+        margin: 0 0 0 0;
+        color: var(--color-lred);
+      }
+
+			.snoop-layer {
+				font-size: 12pt;
+				line-height: 20px;
+        bottom: 20px;
+        left: 0px;
+        width: 100%;
+        text-align: center;
+			}
+
+      .nav-layer {
+        position: fixed;
+        top: 75px;
+        left: 20px;
+      }
+
+      .content {
+        position: absolute;
+        color: #fff;
+        left: 250px;
+        padding: 40px;
+        border-left: 1px solid #282a2e;
+        min-width: calc(100% - 330px);
+        max-width: 1150px;
+      }
+
+      .asciilogo {
+        font-size: 6pt;
+        font-family: 'IBM VGA 9x8';
+        color: var(--color-blue);
+      }
+
+      .logo_wrap {
+        margin: auto;
+        width: 500px;
+      }
+
+      .textheader {
+        color: #81a2be;
+      }
+
+		  a { text-decoration: none; }
+      a:link { color: var(--color-lmagenta); }
+      a:visited { color: var(--color-magenta); }
+			a:hover { color: var(--color-fg); background-color: var(--color-magenta); }
+
+      .section {
+        background-color: #202020;
+        padding: 15px 20px 15px 20px;
+      }
+
+      .section_header, h3 {
+        color: #cc6666;
+      }
+
+      .section_hr {
+        border: 1px solid #8c9440;
+      }
+
+	</style>
+
+
+  </head>
+  <body onLoad="init();" onMouseMove="mouse_position(event);">
+    <div class="body_content">
+      <div class="nav-layer">
+        <h3>course basics</h3>
+        * syllabus<br>
+        * outline<br>
+        * rubric<br>
+        <br>
+
+        <h3>linux resources</h3>
+        * command line<br>
+        * advanced topics<br>
+        <br>
+
+        <h3>modeling services</h3>
+        * <a href="https://swissmodel.expasy.org/interactive">Homology Modeling</a><br>
+        * <a href="http://vakser.compbio.ku.edu/resources/gramm/grammx/">Protein-Protein Docking</a><br>
+        <br>
+
+      </div>
+      <div class="content" >
+        <div class="logo_wrap">
+          <pre class="asciilogo">
+                           /\ /\
+                           \//\/
+                           ///\\
+                          ///\/\\
+//SC governors school//  //\\/\/\\
+                        //\/\\/\/ \
+                       //  \/ \/ /\\
+                      //  +  /\ /  \\
+                     // /\ /\ // +  \\
+                    // /+ \\ \\/\ /\ \\
+                   //  \ /\//\\ // +\ \\
+                  //  + \\ // \\\/\ /  \\
+                 // /\ /\////\\\\ // +  \\
+                // /+ \\ //// \\\\\/\ /\ \\
+               //  \ /\///// + \\\\ // +\ \\
+              //  + \\ // \\ + // \\\/\ /  \\
+             // /\ /\///  /\\ //\  \\ // +  \\
+            // /+ \\ //\\/  \\/  \//\\\/\ /\ \\
+           //  \ /\/// \\\ \   / /// \\ // +\ \\
+          / \ + \\ //  /\\\ \ / ///\  \\\/\ /  \\
+         //\ \ /\////\/  \\ / \ //  \/\\\ // + /\\
+      /\//\/\ \\ ////\\ \  \\ //  / //\\\\\/\ /\/\\/\
+      \//\/\//\/////  \\ \/\\ //\/ //  \\\\ / \//\\\/
+       \\/\/ \ // / ++ /     X     \ ++ \ // \ /\/\\
+      /\\\//\ / \\\\  // /\// \\/\ \\  /////\//\/\//\
+      \/\\/\/ \/\\\\// /  // \\  \ \\//// \\  \/\//\/
+         \\/ + // \\\/\  // \ / \\  /\////\/ \ \//
+          \\  / \/\\\  \/// / \ \\\/  // \\ + \ /
+           \\ \+ // \\ /// /   \ \\\ ///\/ \  //
+            \\ \/ \/\\\//\  //\  /\\// \\ +/ //
+             \\  + // \\  \// \\/  ///\/ \/ //
+              \\  / \/\\\ // + \\ // \\ +  //
+               \\ \+ // \\\\ + /////\/ \  //
+                \\ \/ \/\\\\\ //// \\ +/ //
+                 \\  + // \\\/////\/ \/ //
+                  \\  / \/\\\ // \\ +  //
+                   \\ \+ // \\//\/ \  //
+                    \\ \/ \/\\ \\ +/ //
+                     \\  + // \/ \/ //
+                      \\  / \/  +  //
+                       \\/ /\ /\  //
+                        \ /\/\\/\//  // s// compchem srvr/
+                         \\/\/\\//   // u// dr. ccroberts/
+                          \\/\///    
+                           \\///
+                           /\//\
+                           \/ \/
+
+
+          </pre>
+        </div>
+        <div class="section">
+          <span class="section_header">
+          Lab Documents
+          </span>
+          <hr class="section_hr">
+          <span class="section_content">
+            * <a href="LigandProteinMDTemplateREADME.txt">Ligand-Protein MD Template README - LigandProteinMDTemplateREADME.txt</a><br>
+            * <a href="FlexibleVINATemplateREADME.txt">Flexible Docking with VINA - FlexibleVINATemplateREADME.txt</a><br>
+            * <a href="LigandMDTemplateREADME.txt">LigandMDTemplate README.txt</a><br>
+            * <a href="MDTemplateREADME.txt">MDTemplate README.txt</a><br>
+            * <a href="VINATemplateREADME.txt">Docking with VINA -VINATemplate README.txt</a><br>
+          </span>
+        </div>
+
+        <br>
+
+        <div class="section">
+          <span class="section_header">
+          Online Modeling & Calculation Services
+          </span>
+          <hr class="section_hr">
+          <span class="section_content">
+          </span>
+        </div>
+
+        <br>
+
+        <div class="section">
+          <span class="section_header">
+          HOWTO: Run AutoDock VINA
+          </span>
+          <hr class="section_hr">
+          <span class="section_content">
+            * Copy /home/croberts/CompChem/VINATemplate/ to a folder in your home directory:<br>
+            $ cp -r /home/croberts/CompChem/VINATemplate/ ./NewTemplateFolderName<br>
+            $ cd NewTemplateFolderName<br>
+<br>
+            * Use "egrep" to extract the protein lines that start with ATOM, TER, or END from the first chain only:<br>
+            $ egrep "^ATOM .* A .*|^HETATM .* A .*|^TER|^END" XXXX.pdb > PROTEIN.pdb<br>
+<br>
+            * We must convert out PDB and MOL2 files to PDBQT files in preparation for docking.<br>
+            $ prepare_receptor4.py -r PROTEIN.pdb    # this creates a new pdbqt, PROTEIN.pdbqt<br>
+            $ prepare_ligand4.py -l LIGAND.mol2      # this creates a new pdbqt, LIGAND.pdbqt<br>
+<br>
+            * Edit the AutoDockVina.conf file:<br>
+            + Make sure your "receptor" and "ligand" lines match your PDBQT files from the previous step.<br>
+            + The center coordinates should be approximately in the binding site, and the<br>
+            size dimensions should cover the whole binding site. All measurements are in Angstroms.<br>
+            + If you don't know where your binding site is, you can dock your ligand to the whole protein.<br>
+            Measure the center of the protein using the command: pdb_measure_center.py PROTEIN.pdb<br>
+            Measure the dimensions of the protein using the command: pdb_measure_dimensions.py PROTEIN.pdb<br>
+            + Change the seed value to any random number.<br>
+            + "exhaustiveness" is a qualitative measure of how many cycles of docking search should be performed.<br>
+            A value between 8 and 20 is reasonable, but higher numbers require more time.<br>
+            + "num_modes" is the maximum number of docked conformations to output.<br>
+<br>
+            * Run AutoDockVina<br>
+            $ vina --config AutoDockVina.conf<br>
+          </span>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+
+        <div class="section">
+          <div class="snoop-layer">
+            <span id="browser"></span>; 
+            <span id="client"></span>;
+            <span id="wsize"></span>;
+            <span id="coor">Mouse: (NULLpx, NULLpx)</span>;
+            <span id="scroll">Scroll: (0px)</span>;
+            <span id="javaon">false</span>;
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
