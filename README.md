@@ -1,5 +1,15 @@
 # compchemweb
 
+## Install Node
+https://nodejs.org/en/
+
+
+## Install Node with NVM (Node Version Manager) (recommended)
+https://github.com/nvm-sh/nvm/blob/master/README.md
+
+- nvm allows you to switch between node versions for different projects
+- when opening this app, you can run ```nvm use``` to switch to node version set for this project in ```.nvmrcc``` file.
+
 ## Build Setup
 
 ```bash
