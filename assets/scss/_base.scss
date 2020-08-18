@@ -1,0 +1,52 @@
+@import './vars';
+@import './type';
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media (min-width: $screen-xxl) {
+    font-size: 80%;
+  }
+
+  @media (min-width: $screen-xxxl) {
+    font-size: 80%;
+  }
+
+  @media (min-width: $screen-4k) {
+    font-size: 125%;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  word-spacing: 0.1rem;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.open {
+  overflow-y: hidden;
+  height: 100%;
+}
+
+// responsive img
+img {
+  display: block;
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+}

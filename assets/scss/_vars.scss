@@ -1,0 +1,43 @@
+// Colors
+$black: #222;
+$white: #fff;
+$orange: #eb744a;
+$tbOrange: #c6762d;
+$coronaBlue: #0a5888;
+$tazoTeal: #72c8b8;
+$knudsenBlue: #316198;
+$tmobileMagenta: #e20074;
+$intelBlue: #0071c5;
+$intelBlueDark: #002646;
+
+// Font Families
+$font-family-heading: 'Open Sans Condensed', sans-serif;
+$font-family-sans-serif: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+
+// Font Sizes
+$font-size-base: 1.6rem;
+
+// Breakpoints
+$screen-xs: 320px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1360px;
+$screen-xl: 1800px;
+$screen-xxl: 2200px;
+$screen-xxxl: 3000px;
+$screen-4k: 4000px;
+
+// Z-index
+$z-index-bg: -1;
+$z-index-page: 1;
+$z-index-nav: 2;
+$z-index-overlay: 10;
+
+// navigation
+$nav-textColor: $white;
+$nav-hoverColor: $orange;
+$nav-font-size: 16px;
+
+// work item
+$itemHeightMobile: 95vh;
+$itemHeightDesktop: 75vh;
