@@ -1,5 +1,6 @@
 {
   "name": "compchemweb",
+  "description": "SCGSSM Computational Chemistry Server - Dr. C.C.Roberts",
   "version": "1.0.0",
   "private": true,
   "scripts": {
