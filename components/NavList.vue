@@ -1,24 +1,27 @@
 <template>
-	<nav class="nav">
-		<h5>{{ title }}</h5>
-		<div
+	<ul class="nav-list">
+		<h5 class="nav-title">{{ title }}</h5>
+		<li
 			v-for="item in links"
 			:key="item.title"
+			class="nav-list-item"
 		>
+		<!-- if the link is external use normal anchor link-->
 			<a
 				v-if="item.external"
 				:href="item.src"
 				target="_blank">
 					{{ item.title }}
 			</a>
+			<!-- use nuxt-link for all internal links -->
 			<nuxt-link
 				v-else
 				:to="item.src"
 			>
 			{{ item.title }}
 			</nuxt-link>
-		</div>
-	</nav>
+		</li>
+	</ul>
 </template>
 
 <script>
@@ -42,8 +45,12 @@ export default {
 </script>
 
 <style lang="scss">
-.nav {
-	display: flex;
-	flex-direction: column;
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
 }
 </style>
