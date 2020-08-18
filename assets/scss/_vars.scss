@@ -11,8 +11,8 @@ $intelBlue: #0071c5;
 $intelBlueDark: #002646;
 
 // Font Families
-$font-family-heading: 'Open Sans Condensed', sans-serif;
-$font-family-sans-serif: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+$font-family-sans-serif: 'Share Tech Mono', monospace, 'Helvetica', 'Arial', sans-serif;
+$font-family-body: 'IBM VGA 8x16', $font-family-sans-serif;
 
 // Font Sizes
 $font-size-base: 1.6rem;
