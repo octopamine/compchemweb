@@ -39,5 +39,32 @@
 			"src": "http://vakser.compbio.ku.edu/resources/gramm/grammx/",
 			"external": true
 		}
+	],
+	"labDocuments": [
+		{
+			"title": "Ligand-Protein",
+			"src": "/ligand-protein",
+			"external": false
+		},
+		{
+			"title": "Flexible Docking with VINA",
+			"src": "/flexible-vina",
+			"external": false
+		},
+		{
+			"title": "LigandMD",
+			"src": "/ligand-md",
+			"external": false
+		},
+		{
+			"title": "MD Template",
+			"src": "/md-template",
+			"external": false
+		},
+		{
+			"title": "Docking with VINA",
+			"src": "/vina",
+			"external": false
+		}
 	]
 }
