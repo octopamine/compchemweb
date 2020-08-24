@@ -42,7 +42,7 @@
 	],
 	"labDocuments": [
 		{
-			"title": "Ligand-Protein",
+			"title": "Ligand-Protein MD Template",
 			"src": "/ligand-protein",
 			"external": false
 		},
@@ -52,7 +52,7 @@
 			"external": false
 		},
 		{
-			"title": "LigandMD",
+			"title": "Ligand MD Template",
 			"src": "/ligand-md",
 			"external": false
 		},
