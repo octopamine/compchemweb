@@ -61,7 +61,19 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/markdownit'
   ],
+  // [optional] markdownit options
+  // See https://github.com/markdown-it/markdown-it
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true
+    // use: [
+    //   'markdown-it-div',
+    //   'markdown-it-attrs'
+    // ]
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
