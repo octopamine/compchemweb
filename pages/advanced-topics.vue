@@ -1,5 +1,5 @@
 <template>
-	<div class="advanced-topics" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="advanced-topics markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>

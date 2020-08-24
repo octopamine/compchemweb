@@ -1,5 +1,5 @@
 <template>
-	<div class="command-line" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="command-line markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>

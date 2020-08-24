@@ -1,0 +1,10 @@
+// https://github.com/sindresorhus/github-markdown-css
+@import '../../node_modules/github-markdown-css/';
+
+// to use markdown styles, add .markdown-body to container class that holds markdown content
+
+// override styles
+.markdown-body {
+	font-family: $font-family-body;
+	color: var(--color-white);
+}

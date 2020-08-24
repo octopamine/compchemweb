@@ -1,5 +1,5 @@
 <template>
-	<div class="outline" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="outline markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>

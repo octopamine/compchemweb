@@ -1,4 +1,4 @@
-* Copy /home/croberts/CompChem/LigandMDTemplate/ to a folder in your **home** directory:
+* Copy /home/croberts/CompChem/LigandMDTemplate/ to a folder in your home directory:
   $ cp -r /home/croberts/CompChem/LigandProteinMDTemplate/ ./
 
 * Use "egrep" to extract the protein lines that start with ATOM, TER, or END:

@@ -1,9 +1,9 @@
 <template>
-	<div class="syllabus markdown-body" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="ligand-md markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
-import markdownData from '~/assets/data/markdown/syllabus.md'
+import markdownData from '~/assets/data/markdown/LigandMDTemplate.md'
 
 export default {
 	computed: {
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-.syllabus {
+.ligand-md {
 
 }
 </style>

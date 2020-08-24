@@ -1,5 +1,5 @@
 <template>
-	<div class="ligand-protein" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="ligand-protein markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>

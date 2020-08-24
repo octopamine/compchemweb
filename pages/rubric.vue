@@ -1,5 +1,5 @@
 <template>
-	<div class="rubric" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="rubric markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>

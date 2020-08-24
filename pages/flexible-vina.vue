@@ -1,5 +1,5 @@
 <template>
-	<div class="flexible-vina" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="flexible-vina markdown-body" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
