@@ -64,7 +64,7 @@ export default {
 		position: relative;
 		top: auto;
 		left: auto;
-		width: 12vw;
+		width: 18vw;
 		height: 100vh;
 		visibility: visible;
 		opacity: 1;
