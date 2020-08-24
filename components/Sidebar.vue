@@ -1,21 +1,24 @@
 <template>
 	<div class="sidebar">
 		<!-- Take me home yo!!! -->
-		<nuxt-link to="/">SCGSSM Computational Chemistry Server</nuxt-link>
+		<nuxt-link to="/">SCGSSM Computational Chemistry</nuxt-link>
 
 		<NavList
 			title="Course Basics"
 			:links="courseBasics"
+			class="nav-list"
 		/>
 
 		<NavList
 			title="Linux Resources"
 			:links="linuxResources"
+			class="nav-list"
 		/>
 
 		<NavList
 			title="Modeling Services"
 			:links="modelingServices"
+			class="nav-list"
 		/>
 	</div>
 </template>
@@ -65,6 +68,10 @@ export default {
 		height: 100vh;
 		visibility: visible;
 		opacity: 1;
+	}
+
+	.nav-list {
+		margin-top: 2rem;
 	}
 }
 </style>
