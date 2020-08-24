@@ -1,15 +1,22 @@
 <template>
-	<div class="syllabus">
-		<p>Syllabus</p>
-	</div>
+	<div class="syllabus" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
-export default {
+import markdownData from '~/assets/data/markdown/syllabus.md'
 
+export default {
+	computed: {
+		// returns data
+		markdown() {
+			return markdownData
+		}
+	}
 }
 </script>
 
-<style>
+<style lang="scss">
+.syllabus {
 
+}
 </style>

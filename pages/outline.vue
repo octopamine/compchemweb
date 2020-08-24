@@ -1,15 +1,22 @@
 <template>
-	<div class="outline">
-		<p>Outline</p>
-	</div>
+	<div class="outline" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
-export default {
+import markdownData from '~/assets/data/markdown/outline.md'
 
+export default {
+	computed: {
+		// returns data
+		markdown() {
+			return markdownData
+		}
+	}
 }
 </script>
 
-<style>
+<style lang="scss">
+.outline {
 
+}
 </style>

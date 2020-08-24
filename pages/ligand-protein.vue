@@ -1,9 +1,9 @@
 <template>
-	<div class="advanced-topics" v-html="markdown" /> <!-- calls markdown() -->
+	<div class="ligand-protein" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
-import markdownData from '~/assets/data/markdown/advanced-topics.md'
+import markdownData from '~/assets/data/markdown/LigandProteinMDTemplate.md'
 
 export default {
 	computed: {
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
-.advanced-topics {
+.ligand-protein {
 
 }
 </style>

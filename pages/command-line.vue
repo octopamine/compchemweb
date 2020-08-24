@@ -1,15 +1,22 @@
 <template>
-	<div class="command-line">
-		<p>Command Line</p>
-	</div>
+	<div class="command-line" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
-export default {
+import markdownData from '~/assets/data/markdown/command-line.md'
 
+export default {
+	computed: {
+		// returns data
+		markdown() {
+			return markdownData
+		}
+	}
 }
 </script>
 
-<style>
+<style lang="scss">
+.command-line {
 
+}
 </style>

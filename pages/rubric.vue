@@ -1,15 +1,22 @@
 <template>
-	<div class="rubric">
-		<p>Rubric</p>
-	</div>
+	<div class="rubric" v-html="markdown" /> <!-- calls markdown() -->
 </template>
 
 <script>
-export default {
+import markdownData from '~/assets/data/markdown/rubric.md'
 
+export default {
+	computed: {
+		// returns data
+		markdown() {
+			return markdownData
+		}
+	}
 }
 </script>
 
-<style>
+<style lang="scss">
+.rubric {
 
+}
 </style>
