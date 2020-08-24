@@ -1,7 +1,25 @@
-// Colors
-$black: #222;
-$white: #fff;
-$orange: #eb744a;
+// color vars
+:root {
+  --color-fg: #c5c8c6;
+  --color-bg: #1d1f21;
+  --color-cursor: #c5c8c6;
+  --color-black: #282a2e;
+  --color-lblack: #373b41;
+  --color-red: #a54242;
+  --color-lred: #cc6666;
+  --color-green: #8c9440;
+  --color-lgreen: #b5bd68;
+  --color-yellow: #de935f;
+  --color-lyellow: #f0c674;
+  --color-blue: #5f819d;
+  --color-lblue: #81a2be;
+  --color-magenta: #85678f;
+  --color-lmagenta: #b294bb;
+  --color-cyan: #5e8d87;
+  --color-lcyan: #8abeb7;
+  --color-white: #e2e2e2;
+  --color-lwhite: #c5c8c6;
+}
 
 // Font Families
 $font-family-sans-serif: 'Share Tech Mono', monospace, 'Helvetica', 'Arial', sans-serif;
@@ -27,8 +45,7 @@ $z-index-nav: 2;
 $z-index-overlay: 10;
 
 // navigation
-$nav-textColor: $white;
-$nav-hoverColor: $orange;
+$nav-textColor: var(--color-white);
 $nav-font-size: 16px;
 
 // work item

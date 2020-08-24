@@ -10,13 +10,15 @@
 			<a
 				v-if="item.external"
 				:href="item.src"
-				target="_blank">
+				target="_blank"
+				class="nav-link">
 					{{ item.title }}
 			</a>
 			<!-- use nuxt-link for all internal links -->
 			<nuxt-link
 				v-else
 				:to="item.src"
+				class="nav-link"
 			>
 			{{ item.title }}
 			</nuxt-link>
@@ -45,12 +47,32 @@ export default {
 </script>
 
 <style lang="scss">
-ul {
-	margin: 0;
+.nav-list {
+	margin: 2rem 0 0 0;
 	padding: 0;
-}
 
-li {
-	list-style-type: none;
+	.nav-title {
+		padding: 0 2rem;
+	}
+
+	&-item {
+		list-style-type: none;
+		padding: 0 2rem;
+
+		&:hover {
+			color: var(--color-fg);
+			background-color: var(--color-magenta);
+
+			// make sure .nav-link gets style as well
+			.nav-link {
+				color: var(--color-fg);
+			}
+		}
+		// make .nav-link take full width of .nav-list-item
+		.nav-link {
+			display: block;
+			width: 100%;
+		}
+	}
 }
 </style>

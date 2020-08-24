@@ -1,5 +1,6 @@
 @import './vars';
 @import './type';
+@import './markdown';
 
 html {
   box-sizing: border-box;
@@ -30,6 +31,8 @@ body {
   font-size: $font-size-base;
   line-height: 1.6;
   word-spacing: 0.1rem;
+  background-color: var(--color-bg);
+  color: var(--color-white);
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
